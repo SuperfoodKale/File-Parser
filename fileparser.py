@@ -3,6 +3,7 @@ import sys
 import argparse
 import pathlib
 import importlib.util
+import time
 
 def importFromDir(directory):
     for py_file in pathlib.Path(directory).glob("*.py"):
@@ -73,10 +74,21 @@ if Rules:
 
 for rowID, row in enumerate(InputRows): 
     failed = False
+    timestamp =str(int(time.time()))
+    passFileName = str("passed-" + timestamp +".txt")
+    failFileName = str("failed-" + timestamp +".txt")
+    passFile = open(passFileName, "a")
+    failFile = open(failFileName, "a")
     for colID, value in enumerate(row): 
         ruleName = ParsedRules[colID][0].lower()
         ruleArgs = ParsedRules[colID][1]
         if not getattr(globals()[ruleName], ruleName)(InputRows,rowID,colID,value,ruleArgs):
+            failFile.write(",".join(row) + "\n")
             failed = True
-    print(f"failed?: {failed}")
+            break
+    if not failed:
+        passFile.write(",".join(row) + "\n")
+    
+        
+        
             
