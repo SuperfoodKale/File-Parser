@@ -1,0 +1,3 @@
+Has:test
+HasExact:test,ing
+IsType:Integer
