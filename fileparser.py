@@ -75,8 +75,8 @@ if Rules:
 for rowID, row in enumerate(InputRows): 
     failed = False
     timestamp =str(int(time.time()))
-    passFileName = str("passed-" + timestamp +".txt")
-    failFileName = str("failed-" + timestamp +".txt")
+    passFileName = str("passed-" + timestamp +".csv")
+    failFileName = str("failed-" + timestamp +".csv")
     passFile = open(passFileName, "a")
     failFile = open(failFileName, "a")
     for colID, value in enumerate(row): 
