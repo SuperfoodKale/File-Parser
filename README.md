@@ -49,6 +49,17 @@ HasExact:OK,SUCCESS
 
 ---
 
+**`DoesNotHave`**
+
+* fails if the column value **contains any** of the listed values (partial match)
+* Multiple allowed values: comma-separated
+
+**Example:**
+
+```
+DoesNotHave:error,fail
+```
+
 **`IsType`**
 
 * Passes if the column value **is of the specified type** or can be safely converted
@@ -122,5 +133,10 @@ IsOutlier:true;IsFreqOutlier:false
 ---
 ## Usage Instructions
 
-Todo
+* create rules.txt file with rules for each column of your input csv file 
+* call parser via commandline with input and rules files 
+```
+python fileparser.py input.csv rules.txt 
+```
+* output files will be generated automatically based on the written rules 
 ---
