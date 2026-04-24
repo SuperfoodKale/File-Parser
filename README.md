@@ -134,7 +134,7 @@ IsOutlier:true;IsFreqOutlier:false
 ## Usage Instructions
 
 * create rules.txt file with rules for each column of your input csv file 
-* call parser via commandline with input and rules files 
+* call parser via commandline with input and rules files and required arguments -nh for input files that do not have a header row, -v --verbose for verbose output
 ```
 python fileparser.py input.csv rules.txt 
 ```
